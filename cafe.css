@@ -1,6 +1,8 @@
-.container {
-  display: flex;
-  justify-content: center; /* Centraliza na horizontal */
-  align-items: center;     /* Centraliza na vertical */
-  height: 100vh;           /* Ocupa a altura total da tela */
+body {
+  background-image: url('fundo.jfif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* Ocupa 100% da altura da tela */
+  margin: 0;
 }
