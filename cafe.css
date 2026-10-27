@@ -1,5 +1,5 @@
 body {
-  background-color: gray;
+  background-color: rgb(0, 0, 0);
 
 .centro {
   text-align: center;
@@ -18,7 +18,7 @@ body {
 
 /* Muda a cor quando passa o mouse por cima */
 .botao-3d:hover {
-  background-color: #593196;
+  background-color: #da0a0a;
   transform: translateY(-2px); /* Sobem levemente */
 }
 
