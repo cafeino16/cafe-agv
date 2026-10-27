@@ -1,9 +1,16 @@
 body {
   background-color: rgb(0, 0, 0);
 
+.tito{
+color: #da0a0a;
+height:max-content;
+width:max-content ;
+}
 .centro {
   text-align: center;
+  color: azure;
 }
+
 
 .buttao {
   padding: 12px 24px;
