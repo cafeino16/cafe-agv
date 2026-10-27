@@ -2,13 +2,13 @@ body {
   background-color: rgb(0, 0, 0);
 
 .tito{
-color: #da0a0a;
+background-color: #da0a0a;
 height:max-content;
 width:max-content ;
 }
 .centro {
   text-align: center;
-  color: azure;
+  background-color: azure;
 }
 
 
