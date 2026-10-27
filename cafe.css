@@ -5,4 +5,21 @@ body {
   text-align: center;
 }
 
+.buttao {
+  padding: 12px 24px;
+  background-color: #6f42c1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  cursor: pointer; /* Transforma o ponteiro em mãozinha */
+  transition: all 0.2s; /* Suaviza as mudanças */
+}
+
+/* Muda a cor quando passa o mouse por cima */
+.botao-3d:hover {
+  background-color: #593196;
+  transform: translateY(-2px); /* Sobem levemente */
+}
+
 }
