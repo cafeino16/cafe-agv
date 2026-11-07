@@ -1,28 +1,65 @@
 <!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <title>cafe</title>
-    <link rel="stylesheet" href="cafe.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Online</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <img src="shopping.png" alt="" height="500", width="1000">
-    <h1>wifi gratuito</h1>
-    <br>
-    <p class="tito">via vale shopping</p>
-    <br>
-    <br>
-    <p class="centro"> faça o cadastro para ter acesso a nossa rede wifi segura e gratuita </p>
-    <br>
-<form action="" method="GET">
-    <p class="centro">digite seu email</p>
-    <input type="text" name="email do Otávio">
-    <br>
-    <br>
-    <p class="centro">digite sua senha</p>
-    <input type="text" name="senha do Otávio">
-    <br>
-    <br>
-    <button class="buttao" type="submit">tenha acesso</button>
-</form>
 
+    <div class="chat-container">
+        <h1>Sala de Chat</h1>
 
+        <!-- Áreas das mensagens divididas em duas listas -->
+        <div class="messages-area">
+            <div class="list-container">
+                <h2>Outros Usuários</h2>
+                <ul id="others-messages">
+                    <li>Olá! Tudo bem?</li>
+                </ul>
+            </div>
+
+            <div class="list-container">
+                <h2>Suas Mensagens</h2>
+                <ul id="user-messages">
+                    <!-- Mensagens do usuário aparecerão aqui -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Campo de texto e botão posicionados embaixo das listas -->
+        <div class="input-area">
+            <input type="text" id="message-input" placeholder="Digite sua mensagem...">
+            <button id="send-btn">Enviar</button>
+        </div>
+    </div>
+
+    <!-- Script embutido diretamente no HTML -->
+    <script>
+        const sendBtn = document.getElementById('send-btn');
+        const messageInput = document.getElementById('message-input');
+        const userMessagesList = document.getElementById('user-messages');
+
+        function sendMessage() {
+            const messageText = messageInput.value.trim();
+
+            if (messageText !== '') {
+                const newLi = document.createElement('li');
+                newLi.textContent = messageText;
+                userMessagesList.appendChild(newLi);
+                messageInput.value = '';
+                messageInput.focus();
+            }
+        }
+
+        sendBtn.addEventListener('click', sendMessage);
+
+        messageInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
 </body>
+</html>
