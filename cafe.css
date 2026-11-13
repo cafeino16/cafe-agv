@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #f0f2f5;
+    background-color: #313336;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,10 +40,10 @@ h1 {
     gap: 10px;
     overflow-y: auto;
     margin-bottom: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #503c3c;
     border-radius: 6px;
     padding: 10px;
-    background-color: #fafafa;
+    background-color: #382e2e;
 }
 
 .list-container {
@@ -75,13 +75,13 @@ li {
 }
 
 #others-messages li {
-    background-color: #e4e6eb;
+    background-color: #be4aa1;
     color: #050505;
 }
 
 #user-messages li {
-    background-color: #0084ff;
-    color: #ffffff;
+    background-color: #5c5555;
+    color: #706c6c;
 }
 
 .input-area {
@@ -92,22 +92,22 @@ li {
 input[type="text"] {
     flex: 1;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc42;
     border-radius: 6px;
     font-size: 0.9rem;
     outline: none;
-    background-color: #ffffff;
+    background-color: #cc618a;
     color: #333;
 }
 
 input[type="text"]:focus {
-    border-color: #0084ff;
+    border-color: #0084ff2a;
 }
 
 button {
     padding: 10px 15px;
-    background-color: #0084ff;
-    color: white;
+    background-color: #ff006a;
+    color: rgba(255, 255, 255, 0.205);
     border: none;
     border-radius: 6px;
     font-size: 0.9rem;
@@ -116,5 +116,5 @@ button {
 }
 
 button:hover {
-    background-color: #006bce;
+    background-color: #006ace00;
 }
