@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:'Agency FB', Arial, sans-serif;
+}
+
+body {
+    background-color: #313336;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10px;
+}
+
+.chat-container {
+    background-color: #000000;
+    width: 100%;
+    max-width: 500px;
+    height: 90vh;
+    max-height: 750px;
+
+    box-shadow: 0 4px 10px rgb(44, 0, 38);
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+h1 {
+    font-size: 1.3rem;
+    color: #53003a;
+    text-align: center;
+    margin-bottom: 10px;
+     font-family:'Chiller', Arial, sans-serif;
+     font-size: 2.0rem;
+}
+
+.messages-area {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    border: 5px solid #470000;
+    background-color: #1b0000d5;
+}
+
+.list-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-container h2 {
+    font-size: 0.8rem;
+    color: #555;
+    margin-bottom: 6px;
+    text-align: center;
+    
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0;
+}
+
+li {
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    word-break: break-word;
+}
+
+#others-messages li {
+    background-color: #961f29;
+    color: #050505;
+}
+
+#user-messages li {
+    background-color: #4b2929;
+    color: #000000;
+}
+
+.input-area {
+    display: flex;
+    gap: 8px; /* Mudado para lado a lado para caber melhor no celular */
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #cccccc42;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+    background-color: #cc618a;
+    color: #333;
+}
+
+input[type="text"]:focus {
+    border-color: #0084ff2a;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #ff006a;
+    color: rgba(255, 255, 255, 0.205);
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #006ace00;
+}

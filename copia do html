@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEO chan</title>
+    <link rel="stylesheet" href="cafe.css">
+</head>
+<body>
+
+    <div class="chat-container">
+        <h1>NEO Chan</h1>
+
+        <!-- Áreas das mensagens divididas em duas listas -->
+        <div class="messages-area">
+            <div class="list-container">
+             
+                <ul id="others-messages">
+                    <li>tem que resolver isso</li>
+                    <li id="alola"></li>
+                </ul>
+            </div>
+
+            <div class="list-container">
+           
+                <ul id="user-messages">
+                    <!-- Mensagens do usuário aparecerão aqui -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Campo de texto e botão posicionados embaixo das listas -->
+        <div class="input-area">
+            <input type="text" id="message-input" placeholder="...">
+            <button id="send-btn">Enviar</button>
+        </div>
+    </div>
+
+    <!-- Script embutido diretamente no HTML -->
+    <script>
+        let nom_usuario = 'cafeina'
+        let menssagem_neo = 'teste'
+        let menssagem_neo2 = 'Para fazer uma pipoca doce caramelizada crocante o segredo é usar a proporção exata de ingredientes na panela e não parar de mexer depois que o caramelo começa a dourar Ingredientes meia xícara de chá de milho para pipoca meia xícara de chá de açúcar cristal ou refinado um quarto de xícara de chá de água três colheres de sopa de óleo Modo de Preparo Misture tudo em uma panela grande e funda de preferência de fundo grosso para não queimar coloque o óleo o milho o açúcar e a água e misture bem antes de ligar o fogo Aqueça e mexa ligue em fogo médio para alto e continue mexendo de vez em quando enquanto a água ferve e começa a evaporar formando uma calda grossa Ponto de estouro assim que os primeiros milhos começarem a estourar tampe a panela e abaixe o fogo para o mínimo Agite a panela segure as alças da panela use panos de prato ou luvas térmicas para não se queimar e sacuda suavemente a cada cinco segundos pois isso evita que o açúcar queime no fundo e garante que o caramelo envolva todos os grãos Finalize quando o intervalo entre os estouros passar de dois segundos desligue o fogo imediatamente e transfira a pipoca para uma travessa grande ou assadeira Esfrie e solte espalhe a pipoca na travessa para que ela esfrie rápido pois é o choque térmico que deixa a casquinha crocante e depois de morna quebre os blocos com as mãos para soltar os grãos Dica de segurança o caramelo quente atinge temperaturas muito altas e pode causar queimaduras graves portanto nunca experimente a pipoca direto da panela e espere alguns minutos até que a calda endureça e esfrie'
+        document.getElementById('alola').textContent = nom_usuario + " comentou: " + menssagem_neo2;
+        const sendBtn = document.getElementById('send-btn');
+    
+        const messageInput = document.getElementById('message-input');
+        const userMessagesList = document.getElementById('user-messages');
+
+        function sendMessage() {
+            const messageText = messageInput.value.trim();
+
+            if (messageText !== '') {
+                const newLi = document.createElement('li');
+                newLi.textContent = messageText;
+                userMessagesList.appendChild(newLi);
+                messageInput.value = '';
+                messageInput.focus();
+            }
+        }
+
+        sendBtn.addEventListener('click', sendMessage);
+
+        messageInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

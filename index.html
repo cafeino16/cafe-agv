@@ -3,63 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEO chan</title>
-    <link rel="stylesheet" href="cafe.css">
+    <title>NEO Chan</title>
+    <style>
+        * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:'Agency FB', Arial, sans-serif;
+}
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .chat-container {
+            width: 80%;
+            max-width: 700px;
+            background-color: #000000;
+            border: 1px solid #690101;
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #961f29;
+            margin-top: 0;
+            font-family: 'Chiller', Arial, sans-serif;
+            font-size: 2.5rem;
+        }
+
+        /* Área onde as mensagens ficam e rolam */
+        .messages-area {
+            flex: 1;
+            overflow-y: auto;
+            border: 1px solid #4b2929;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            padding: 10px;
+        }
+
+        /* Lista única para todas as mensagens */
+        #chat-messages {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #chat-messages li {
+            padding: 10px 14px;
+            border-radius: 8px;
+            max-width: 75%;
+            word-break: break-word;
+        }
+
+        /* Mensagens dos outros (esquerda) */
+        .other-message {
+            background-color: #961f29;
+            color: #050505;
+            align-self: flex-start;
+        }
+
+        /* Suas mensagens (direita) */
+        .user-message {
+            background-color: #4b2929;
+            color: #ffffff;
+            align-self: flex-end;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 8px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #cccccc42;
+            border-radius: 6px;
+            background-color: #490017;
+            color: #000;
+            font-size: 0.9rem;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #640000;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #fa0000;
+        }
+    </style>
 </head>
 <body>
 
     <div class="chat-container">
         <h1>NEO Chan</h1>
-
-        <!-- Áreas das mensagens divididas em duas listas -->
-        <div class="messages-area">
-            <div class="list-container">
-             
-                <ul id="others-messages">
-                    <li>Olá! Tudo bem?</li>
-                </ul>
-            </div>
-
-            <div class="list-container">
-           
-                <ul id="user-messages">
-                    <!-- Mensagens do usuário aparecerão aqui -->
-                </ul>
-            </div>
+        
+        <div class="messages-area" id="messages-area">
+            <ul id="chat-messages">
+                <li class="other-message">cafeina comentou: tem que resolver isso</li>
+                <li class="other-message">cafeina comentou: para fazer uma pipoca doce caramelizada crocante o segredo é usar a proporção exata de ingredientes na panela e não parar de mexer depois que o caramelo começa a dourar Ingredientes meia xícara de chá de milho para pipoca meia xícara de chá de açúcar cristal ou refinado um quarto de xícara de chá de água três colheres de sopa de óleo Modo de Preparo Misture tudo em uma panela grande e funda de preferência de fundo grosso para não queimar coloque o óleo o milho o açúcar e a água e misture bem antes de ligar o fogo Aqueça e mexa ligue em fogo médio para alto e continue mexendo de vez em quando enquanto a água ferve e começa a evaporar formando uma calda grossa Ponto de estouro assim que os primeiros milhos começarem a estourar tampe a panela e abaixe o fogo para o mínimo Agite a panela segure as alças da panela use panos de prato ou luvas térmicas para não se queimar e sacuda suavemente a cada cinco segundos pois isso evita que o açúcar queime no fundo e garante que o caramelo envolva todos os grãos Finalize quando o intervalo entre os estouros passar de dois segundos desligue o fogo imediatamente e transfira a pipoca para uma travessa grande ou assadeira Esfrie e solte espalhe a pipoca na travessa para que ela esfrie rápido pois é o choque térmico que deixa a casquinha crocante e depois de morna quebre os blocos com as mãos para soltar os grãos Dica de segurança o caramelo quente atinge temperaturas muito altas e pode causar queimaduras graves portanto nunca experimente a pipoca direto da panela e espere alguns minutos até que a calda endureça e esfrie</li>
+            </ul>
         </div>
 
-        <!-- Campo de texto e botão posicionados embaixo das listas -->
         <div class="input-area">
-            <input type="text" id="message-input" placeholder="Digite sua mensagem...">
+            <input type="text" id="message-input" placeholder="...">
             <button id="send-btn">Enviar</button>
         </div>
     </div>
 
-    <!-- Script embutido diretamente no HTML -->
+    <!-- O JavaScript entra aqui, antes de fechar o </body> -->
     <script>
         const sendBtn = document.getElementById('send-btn');
         const messageInput = document.getElementById('message-input');
-        const userMessagesList = document.getElementById('user-messages');
+        const chatMessages = document.getElementById('chat-messages');
+        const messagesArea = document.getElementById('messages-area');
 
-        function sendMessage() {
-            const messageText = messageInput.value.trim();
+        function enviarMensagem() {
+            const texto = messageInput.value.trim();
+            if (texto === "") return;
 
-            if (messageText !== '') {
-                const newLi = document.createElement('li');
-                newLi.textContent = messageText;
-                userMessagesList.appendChild(newLi);
-                messageInput.value = '';
-                messageInput.focus();
-            }
+            // Cria o item da lista e aplica o estilo de mensagem do usuário
+            const novaMensagem = document.createElement('li');
+            novaMensagem.classList.add('user-message');
+            novaMensagem.textContent = texto;
+
+            // Adiciona no final da lista única (embaixo das outras)
+            chatMessages.appendChild(novaMensagem);
+
+            // Limpa o campo de texto e rola a tela para a última mensagem
+            messageInput.value = "";
+            messagesArea.scrollTop = messagesArea.scrollHeight;
         }
 
-        sendBtn.addEventListener('click', sendMessage);
+        // Envia ao clicar no botão
+        sendBtn.addEventListener('click', enviarMensagem);
 
-        messageInput.addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                sendMessage();
+        // Também permite enviar apertando a tecla "Enter" no teclado
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                enviarMensagem();
             }
         });
     </script>
+
 </body>
 </html>
