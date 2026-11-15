@@ -1,2 +1,2 @@
 # cafe-agv
-demonstração, falsas entradas
+demonstração de um chat
